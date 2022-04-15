@@ -57,9 +57,10 @@ export default class Posts extends React.Component {
                 <ul>
                     {
                         posts.map((post) => {
-                            let target = `/posts/${post.id}`
+                            let {id, name} = post
+                            let target = `/posts/${id}`
                             return (
-                                <li key={post.id}><Link to={target}>{post.name}</Link></li>
+                                <li key={id}><Link to={target}>{name}</Link></li>
                             )
                         })
                     }

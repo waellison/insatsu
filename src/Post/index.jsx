@@ -1,6 +1,9 @@
 import React from "react"
-import {marked} from "marked"
+import { marked } from "marked"
 import { useParams } from "react-router-dom"
+import Posts from "../Posts"
+import NavBar from "../NavBar"
+import PostLinks from "../PostLinks"
 
 class Post extends React.Component {
     constructor(props) {
@@ -32,7 +35,7 @@ class Post extends React.Component {
     }
 
     render() {
-        let {error, loaded, post} = this.state
+        let {id, error, loaded, post} = this.state
         let postMarkup = undefined
 
         if(error) {
@@ -49,13 +52,16 @@ class Post extends React.Component {
             )
         }
 
-        if(post) {
+        if(id === "all") {
+            return <Posts />
+        } else if(post) {
             postMarkup = marked.parse(post.content)
             /* elses are for pussies */
             return (
                 <article>
                     <h1>{post.name}</h1>
                     <main dangerouslySetInnerHTML={{__html: postMarkup}} />
+                    <PostLinks next={post.next_id} prev={post.previous_id} />
                 </article>            
             )
         }
@@ -63,7 +69,10 @@ class Post extends React.Component {
 }
 
 export default (props) => (
+    <>
+    <NavBar />
     <Post
         {...props}
         params={useParams()}/>  
+    </>
 )
