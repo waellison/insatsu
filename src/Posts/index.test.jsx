@@ -101,7 +101,18 @@ it('renders a list of posts if a nonzero number of posts is found', () => {
     jest.mock('./index.jsx');
     fetch.mockResponseOnce(JSON.stringify(postListMock));
 
-    const post = renderer.create(<Posts />);
-    let tree = post.toJSON();
+    const postList = renderer.create(<Posts />);
+    let tree = postList.toJSON();
     expect(tree).toMatchSnapshot();
-})
+});
+
+it('renders a message if no posts are found', () => {
+    const postListMock = [];
+
+    jest.mock('./index.jsx');
+    fetch.mockResponseOnce(JSON.stringify(postListMock));
+
+    const postList = renderer.create(<Posts />);
+    let tree = postList.toJSON();
+    expect(tree).toMatchSnapshot();
+});
