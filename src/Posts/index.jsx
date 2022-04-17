@@ -9,12 +9,12 @@ export default class Posts extends React.Component {
             posts: undefined,
             loaded: false
         }
+        this.getAllPosts = this.getAllPosts.bind(this);
     }
 
-    componentDidMount() {
+    getAllPosts() {
         fetch(`http://localhost:5000/posts/all`, {mode: 'cors'})
         .then((res) => {
-            console.log(res)
             return res.json()
         })
         .then(
@@ -35,6 +35,10 @@ export default class Posts extends React.Component {
         )
     }
 
+    componentDidMount() {
+        this.getAllPosts();
+    }
+
     render() {
         let {error, loaded, posts} = this.state
 
@@ -52,7 +56,7 @@ export default class Posts extends React.Component {
             )
         }
 
-        if(posts) {
+        if(posts.length > 0) {
             return (
                 <ul>
                     {
@@ -60,11 +64,15 @@ export default class Posts extends React.Component {
                             let {id, name} = post
                             let target = `/posts/${id}`
                             return (
-                                <li key={id}><Link to={target}>{name}</Link></li>
+                                <li key={id}><a href={target}>{name}</a></li>
                             )
                         })
                     }
                 </ul>
+            )
+        } else {
+            return (
+                <p>There are no posts.</p>
             )
         }
     }

@@ -1,10 +1,14 @@
-import Posts from "./Posts"
-import './App.css'
+import Posts from "../Posts";
+import NavBar from "../NavBar";
+import "./index.css";
 
 function App() {
   return (
-    <Posts />
-  )
+    <>
+      <NavBar />
+      <Posts />
+    </>
+  );
 }
 
-export default App
+export default App;

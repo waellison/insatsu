@@ -1,21 +1,22 @@
-import React from "react"
-import { marked } from "marked"
+import React from "react";
 import { useParams } from "react-router-dom"
-import Posts from "../Posts"
-import NavBar from "../NavBar"
-import PostLinks from "../PostLinks"
+import { marked } from "marked";
+import Posts from "../Posts";
+import PostLinks from "../PostLinks";
+import NavBar from "../NavBar";
 
-class Post extends React.Component {
+class PostItem extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             id: this.props.params.id,
             post: undefined,
             loaded: false
-        }
+        };
+        this.getMatchingPost = this.getMatchingPost.bind(this);
     }
     
-    componentDidMount() {
+   getMatchingPost() {
         fetch(`http://localhost:5000/posts/${this.state.id}`, {mode: 'cors'})
             .then(res => res.json())
             .then(
@@ -23,33 +24,37 @@ class Post extends React.Component {
                     this.setState({
                         post: result,
                         loaded: true
-                    })
+                    });
                 },
                 (error) => {
                     this.setState({
                         loaded: true,
                         error
-                    })
+                    });
                 }
-            )
+            );
+    }
+
+    componentDidMount() {
+        this.getMatchingPost();
     }
 
     render() {
-        let {id, error, loaded, post} = this.state
-        let postMarkup = undefined
+        let {id, error, loaded, post} = this.state;
+        let postMarkup = undefined;
 
-        if(error) {
+        if(error || this.state.hasError) {
             return (
                 <div className="oopsIFuckedUp">
                     {error.message}
                 </div>
-            )
+            );
         } else if(!loaded) {
             return (
                 <div className="justASecAlrightGeez">
                     Loading...
                 </div>
-            )
+            );
         }
 
         if(id === "all") {
@@ -63,16 +68,18 @@ class Post extends React.Component {
                     <main dangerouslySetInnerHTML={{__html: postMarkup}} />
                     <PostLinks next={post.next_id} prev={post.previous_id} />
                 </article>            
-            )
+            );
         }
     }
 }
 
-export default (props) => (
+const Post = (props) => (
     <>
     <NavBar />
-    <Post
+    <PostItem
         {...props}
         params={useParams()}/>  
     </>
-)
+);
+
+export default Post;
