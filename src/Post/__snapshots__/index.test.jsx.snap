@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders as expected upon error 1`] = `
+Array [
+  <nav>
+    <menu>
+      <li>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/posts/all"
+        >
+          All Posts
+        </a>
+      </li>
+    </menu>
+  </nav>,
+  <div
+    className="justASecAlrightGeez"
+  >
+    Loading...
+  </div>,
+]
+`;
+
+exports[`renders as expected when given a post to render 1`] = `
+Array [
+  <nav>
+    <menu>
+      <li>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/posts/all"
+        >
+          All Posts
+        </a>
+      </li>
+    </menu>
+  </nav>,
+  <div
+    className="justASecAlrightGeez"
+  >
+    Loading...
+  </div>,
+]
+`;

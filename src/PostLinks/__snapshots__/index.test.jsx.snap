@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostLinks renders as expected with next link only 1`] = `
+<p>
+   
+   
+  <a
+    className="nextLink"
+    href="/posts/9"
+  >
+    Next Post
+  </a>
+</p>
+`;
+
+exports[`PostLinks renders as expected with prev link only 1`] = `
+<p>
+  <a
+    className="prevLink"
+    href="/posts/9"
+  >
+    Previous Post
+  </a>
+   
+   
+</p>
+`;
+
+exports[`PostLinks renders as expected with prev/next links 1`] = `
+<p>
+  <a
+    className="prevLink"
+    href="/posts/7"
+  >
+    Previous Post
+  </a>
+   
+   • 
+   
+  <a
+    className="nextLink"
+    href="/posts/9"
+  >
+    Next Post
+  </a>
+</p>
+`;

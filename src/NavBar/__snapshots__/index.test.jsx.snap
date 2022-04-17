@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar renders as expected 1`] = `
+<nav>
+  <menu>
+    <li>
+      <a
+        href="/"
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        href="/posts/all"
+      >
+        All Posts
+      </a>
+    </li>
+  </menu>
+</nav>
+`;
