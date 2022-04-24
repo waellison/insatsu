@@ -1,17 +1,57 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders a list of posts if a nonzero number of posts is found 1`] = `
-<div
-  className="justASecAlrightGeez"
->
-  Loading...
-</div>
+Array [
+  <nav>
+    <menu>
+      <li>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/posts/all"
+        >
+          All Posts
+        </a>
+      </li>
+    </menu>
+  </nav>,
+  <div
+    className="justASecAlrightGeez"
+  >
+    Loading...
+  </div>,
+]
 `;
 
 exports[`renders a message if no posts are found 1`] = `
-<div
-  className="justASecAlrightGeez"
->
-  Loading...
-</div>
+Array [
+  <nav>
+    <menu>
+      <li>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </li>
+      <li>
+        <a
+          href="/posts/all"
+        >
+          All Posts
+        </a>
+      </li>
+    </menu>
+  </nav>,
+  <div
+    className="justASecAlrightGeez"
+  >
+    Loading...
+  </div>,
+]
 `;

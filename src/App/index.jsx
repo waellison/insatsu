@@ -5,8 +5,7 @@ import "./index.css";
 function App() {
   return (
     <>
-      <NavBar />
-      <Posts />
+      <Posts pageNumber={0} />
     </>
   );
 }

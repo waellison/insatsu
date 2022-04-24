@@ -16,8 +16,12 @@ class PostItem extends React.Component {
         this.getMatchingPost = this.getMatchingPost.bind(this);
     }
     
-   getMatchingPost() {
-        fetch(`http://localhost:5000/posts/${this.state.id}`, {mode: 'cors'})
+    getMatchingPost() {
+        return fetch(`http://localhost:5000/posts/${this.state.id}`, {mode: 'cors'});
+    }
+
+    componentDidMount() {
+        this.getMatchingPost()
             .then(res => res.json())
             .then(
                 (result) => {
@@ -33,10 +37,6 @@ class PostItem extends React.Component {
                     });
                 }
             );
-    }
-
-    componentDidMount() {
-        this.getMatchingPost();
     }
 
     render() {
@@ -61,7 +61,7 @@ class PostItem extends React.Component {
             return <Posts />
         } else if(post) {
             postMarkup = marked.parse(post.content)
-            /* elses are for pussies */
+
             return (
                 <article>
                     <h1>{post.name}</h1>

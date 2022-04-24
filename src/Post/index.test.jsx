@@ -1,9 +1,13 @@
 import React from "react";
 import renderer from 'react-test-renderer';
 import fetchMock from "jest-fetch-mock";
-import Post from './index';
+import PostItem from './index';
 
 fetchMock.enableMocks();
+
+beforeEach(() => {
+    fetchMock.resetMocks();
+});
 
 it('renders as expected when given a post to render', () => {
     const postMock = {
@@ -28,19 +32,18 @@ it('renders as expected when given a post to render', () => {
         "tags": []
     };
 
-    jest.mock('./index.jsx');
-    fetch.mockResponseOnce(JSON.stringify(postMock));
+    const post = renderer.create(<PostItem />);
+    fetch.mockResponse(JSON.stringify(postMock));
 
-    const post = renderer.create(<Post />);
     let tree = post.toJSON();
     expect(tree).toMatchSnapshot();
-    expect(fetch).toHaveBeenCalledTimes(1);
 });
 
 it('renders as expected upon error', () => {
+    fetchMock.resetMocks();
     fetch.mockReject(() => Promise.reject("404 not found"));
 
-    const post = renderer.create(<Post />);
+    const post = renderer.create(<PostItem />);
     // do not set state here
     let tree = post.toJSON();
     expect(tree).toMatchSnapshot();
