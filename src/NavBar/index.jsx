@@ -5,7 +5,7 @@ const NavBar = () => {
         <header id="navBar">
             <nav>
                 <div id="navBarBrand">
-                    <a class="navLink" href="/">WillRead Test Site</a>
+                    <a className="navLink" href="/">WillRead Test Site</a>
                 </div>
                 <div id="navBarBody">
                     <menu id="topLevelNavMenu">
