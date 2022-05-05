@@ -1,5 +1,4 @@
 import Posts from "../Posts";
-import NavBar from "../NavBar";
 import "./index.css";
 
 function App() {

@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom"
 import { marked } from "marked";
 import Posts from "../Posts";
 import PostLinks from "../PostLinks";
-import NavBar from "../NavBar";
 
 class PostItem extends React.Component {
     constructor(props) {
@@ -75,7 +74,6 @@ class PostItem extends React.Component {
 
 const Post = (props) => (
     <>
-    <NavBar />
     <PostItem
         {...props}
         params={useParams()}/>  
