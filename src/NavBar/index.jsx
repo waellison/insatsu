@@ -2,16 +2,23 @@ import React from "react";
 
 const NavBar = () => {
     return (
-        <nav>
-            <menu>
-                <li>
-                    <a href={"/"}>Home</a>
-                </li>
-                <li>
-                    <a href={"/posts/all"}>All Posts</a>
-                </li>
-            </menu>
-        </nav>
+        <header id="navBar">
+            <nav>
+                <div id="navBarBrand">
+                    <a class="navLink" href="/">WillRead Test Site</a>
+                </div>
+                <div id="navBarBody">
+                    <menu id="topLevelNavMenu">
+                        <li>
+                            <a className="navLink" href={"/"}>Home</a>
+                        </li>
+                        <li>
+                            <a className="navLink" href={"/posts/all"}>All Posts</a>
+                        </li>
+                    </menu>
+                </div>
+            </nav>
+        </header>
     );
 };
 

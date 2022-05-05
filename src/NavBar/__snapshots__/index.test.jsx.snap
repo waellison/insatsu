@@ -1,22 +1,44 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`NavBar renders as expected 1`] = `
-<nav>
-  <menu>
-    <li>
+<header
+  id="navBar"
+>
+  <nav>
+    <div
+      id="navBarBrand"
+    >
       <a
+        class="navLink"
         href="/"
       >
-        Home
+        WillRead Test Site
       </a>
-    </li>
-    <li>
-      <a
-        href="/posts/all"
+    </div>
+    <div
+      id="navBarBody"
+    >
+      <menu
+        id="topLevelNavMenu"
       >
-        All Posts
-      </a>
-    </li>
-  </menu>
-</nav>
+        <li>
+          <a
+            className="navLink"
+            href="/"
+          >
+            Home
+          </a>
+        </li>
+        <li>
+          <a
+            className="navLink"
+            href="/posts/all"
+          >
+            All Posts
+          </a>
+        </li>
+      </menu>
+    </div>
+  </nav>
+</header>
 `;
