@@ -1,4 +1,4 @@
-# WillRead: A frontend for WillPress
+# Insatsu: A frontend for Hanmoto
 
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/694d22eae26b4cc180a644c34902071b)](https://www.codacy.com/gh/waellison/insatsu/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=waellison/insatsu&amp;utm_campaign=Badge_Grade)
 [![CodeQL](https://github.com/waellison/insatsu/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/waellison/insatsu/actions/workflows/codeql-analysis.yml)
